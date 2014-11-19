@@ -1,5 +1,6 @@
 package no.sonat.fruktsalat
 
+import akka.actor.ActorSystem
 import org.slf4j.LoggerFactory
 
 import ListOfStuff._
@@ -10,7 +11,8 @@ object ListOfStuff {
 
 trait FruitApp extends App {
   val log = LoggerFactory.getLogger(getClass)
-  val client = Client(false)
+  val system = ActorSystem.create("FruitApp")
+  val client:Client = new ClientImpl(system, false)
 }
 
 
