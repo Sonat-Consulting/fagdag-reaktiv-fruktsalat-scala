@@ -1,5 +1,6 @@
-package no.sonat.fruktsalat
+package no.sonat.fruktsalat.apps
 
+import no.sonat.fruktsalat.FruitApp
 import no.sonat.fruktsalat.ListOfStuff._
 
 import scala.concurrent.Future
@@ -9,6 +10,7 @@ object AsyncApp extends FruitApp {
 
   val futureIngredients = stuffWeNeed.map {
     whatWeNeed =>
+      log.info(s"Starting to fetch $whatWeNeed")
       val futureToResult = client.getFruit(whatWeNeed)
       log.info(s"Now we're waiting for $whatWeNeed")
       futureToResult

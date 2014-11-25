@@ -1,7 +1,7 @@
-package no.sonat.fruktsalat
+package no.sonat.fruktsalat.apps
 
-import akka.actor.Actor.Receive
 import akka.actor.{Props, Actor, ActorLogging}
+import no.sonat.fruktsalat.{Client, FruitApp, ListOfStuff}
 import ListOfStuff._
 
 object ActorApp extends FruitApp {
@@ -23,6 +23,7 @@ object ActorApp extends FruitApp {
 
 }
 
+// Messages
 case class MakeFruitSalat(ingredients:List[String])
 case class GotOneIngredient(name:String)
 

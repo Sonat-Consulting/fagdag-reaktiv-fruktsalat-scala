@@ -1,15 +1,14 @@
-package no.sonat.fruktsalat
+package no.sonat.fruktsalat.apps
 
-import ListOfStuff._
-import no.sonat.fruktsalat.BlockingInARow._
-
-import scala.concurrent.Future
+import no.sonat.fruktsalat.FruitApp
+import no.sonat.fruktsalat.ListOfStuff._
 
 object BlockingInARow extends FruitApp {
 
   val ingredients = stuffWeNeed.map {
     whatWeNeed =>
 
+      log.info(s"Starting to fetch $whatWeNeed")
       val gotIt = client.getFruitNow(whatWeNeed)
       log.info(s"Now we have $gotIt")
       gotIt
